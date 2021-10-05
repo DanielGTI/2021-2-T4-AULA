@@ -1,3 +1,4 @@
+<%@page import="Suporte.Unidades" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" errorPage="TratarErro.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
                 <pre>
 Código do item:        <input type="text" name="codigo">
 Descrição:             <input type="text" name="descricao">
-Unidade:               <input type="text" name="unidade">
+Unidade:               <%=new Unidades().getUnidades()%>
 Saldo:                 <input type="text" name="saldo">
 Valor unitário:        <input type="text" name="valor">
 Observação:            <input type="text" name="obs">
