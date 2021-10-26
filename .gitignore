@@ -1,4 +1,17 @@
-/Aula2/nbproject/private/
-/Aula2/build/
-/Aula3/nbproject/private/
-/Aula3/build/
+# Created by https://www.toptal.com/developers/gitignore/api/jspm,netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=jspm,netbeans
+
+### jspm ###
+jspm_packages
+
+### NetBeans ###
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# End of https://www.toptal.com/developers/gitignore/api/jspm,netbeans
