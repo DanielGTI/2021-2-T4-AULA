@@ -7,4 +7,7 @@ CREATE TABLE usuario(
 );
 
 INSERT INTO usuario (nome, senha) 
-    VALUES ('daniel', '123');
+    VALUES ('joao', '123');
+
+
+select * from usuario where nome = "daniel" and senha = "1234";

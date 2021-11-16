@@ -7,25 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import Model.dao.UsuarioDAO;
 public class Logar extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Logar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Logar configurado em:  " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
 
@@ -45,18 +32,20 @@ public class Logar extends HttpServlet {
         //processRequest(request, response);
         
         try{
+            UsuarioDAO user = new UsuarioDAO();
             
             String login = request.getParameter("usuario");
             String senha = request.getParameter("senha");
             HttpSession session = request.getSession();
             
-            if(  login.equals("daniel") && senha.equals("123")){
+            if( user.autenticar(login, senha)  ){
                 session.setAttribute("usuario", login);
-                session.setMaxInactiveInterval(60);
+                session.setMaxInactiveInterval(120);
                 response.sendRedirect("aluno.jsp");
             
             }else{
                 session.setAttribute("usuario", "");
+                session.invalidate();
                 response.sendRedirect("");
             }
         } catch ( Exception e ){
